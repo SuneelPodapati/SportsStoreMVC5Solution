@@ -205,6 +205,16 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DataContexts\ApplicationDbContext.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201708221123534_IntitalCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201708221123534_IntitalCreate.Designer.cs">
+      <DependentUpon>201708221123534_IntitalCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\SportsStoreMigrations\201708221121288_InitialCreate.cs" />
+    <Compile Include="DataContexts\SportsStoreMigrations\201708221121288_InitialCreate.Designer.cs">
+      <DependentUpon>201708221121288_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\SportsStoreMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -314,6 +324,14 @@
       <Project>{277ad7f7-c112-47a5-88d3-133f8852e342}</Project>
       <Name>SportsStoreDomainLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201708221123534_IntitalCreate.resx">
+      <DependentUpon>201708221123534_IntitalCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\SportsStoreMigrations\201708221121288_InitialCreate.resx">
+      <DependentUpon>201708221121288_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

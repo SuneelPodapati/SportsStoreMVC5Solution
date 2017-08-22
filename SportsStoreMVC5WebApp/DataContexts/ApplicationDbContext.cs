@@ -10,7 +10,7 @@ namespace SportsStoreMVC5WebApp.DataContexts
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SportsStoreConnection", throwIfV1Schema: false)
         {
         }
 

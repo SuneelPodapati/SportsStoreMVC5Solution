@@ -10,6 +10,7 @@ namespace SportsStoreMVC5WebApp.Models
     public class ApplicationUser : IdentityUser
     {
         public string FavColor { get; set; }
+        //public string Email { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

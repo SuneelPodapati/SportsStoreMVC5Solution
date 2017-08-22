@@ -18,3 +18,20 @@ SportsStoreMVC5WebApp
 		3. Packages
 			a. Install-Package Unity
 			b. Install-Package Fontawesome
+		4. Using EF Code First To create the Database and the tables
+			a. Enable-Migrations -ContextTypeName SportsStoreDomainLibrary.Concrete.SportsStoreDbContext -MigrationsDirectory DataContexts\SportsStoreMigrations -ContextProjectName SportsStoreDomainLibrary
+			b. Enable-Migrations -ContextTypeName SportsStoreMVC5WebApp.DataContexts.ApplicationDbContext -MigrationsDirectory DataContexts\IdentityMigrations
+
+			Next Adding the Migration, this will create the "InitialCreate" class with the table structure
+			c. Add-Migration -ConfigurationTypeName SportsStoreMVC5WebApp.DataContexts.SportsStoreMigrations.Configuration "InitialCreate" 
+			d. Add-Migration -ConfigurationTypeName SportsStoreMVC5WebApp.DataContexts.IdentityMigrations.Configuration "IntitalCreate"
+
+			Next Update Database, this will create the database and the tables
+			e. Update-Database -ConfigurationTypeName SportsStoreMVC5WebApp.DataContexts.SportsStoreMigrations.Configuration -verbose
+			f. Update-Database -ConfigurationTypeName SportsStoreMVC5WebApp.DataContexts.IdentityMigrations.Configuration
+
+
+
+			Microsoft.AspNet.Identity.Core
+			Microsoft.AspNet.Identity.EntityFramework
+			
