@@ -1,0 +1,20 @@
+SportsStoreDomainLibrary
+	Required Packages
+	1. Install-Package EntityFramework
+
+SportsStoreMVC5WebApp
+	1. Create a DataContexts folder
+		a. Move ApplicationDbContext as a class to this folder from IdentityModels.cs
+
+	Required Packages
+		1. Project Library
+			a. LoggingLibrary
+			b. SportsStoreDomainLibrary
+		2. DI providers
+			a. Unity (Microsoft) Will use this one
+			b. AutoFac
+			c. Ninject
+			d. StructureMap
+		3. Packages
+			a. Install-Package Unity
+			b. Install-Package Fontawesome

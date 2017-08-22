@@ -1,0 +1,31 @@
+﻿@model SportsStoreMVC5WebApp.Models.ProductsListViewModel
+@{
+    ViewBag.Title = "List";
+}
+<h2>Products Listing...</h2>
+<div class="row">
+    @foreach (var item in Model.Products)
+    {
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            @Html.Partial("_productSummary", item)
+        </div>
+    }
+</div>
+<hr style="background-color:saddlebrown; height:2px;"/>
+<div>
+    @Html.Partial("_productsPager", Model.GPager);
+</div>
+
+
+
+
+@*@foreach (var item in Model)
+{
+    <div>
+        <h3>@item.ProductName</h3>
+        <b>@item.Description</b>
+        <h4>@item.Price.ToString("c")</h4>
+    </div>
+}*@
+
+

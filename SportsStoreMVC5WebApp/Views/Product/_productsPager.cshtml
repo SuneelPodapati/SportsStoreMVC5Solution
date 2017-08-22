@@ -1,0 +1,23 @@
+﻿@model SportsStoreMVC5WebApp.Infrastructure.GPager
+@{ 
+    var firstPlus = Model.CurrentPage == 1 ? "disabled" : "";
+    var lastMinus = Model.CurrentPage == Model.TotalPages ? "disabled" : "";
+}
+<div class="row pull-right" style="margin-right:1px;">
+    @if (Model.EndPage > 1)
+    {
+        <ul class="pagination">
+            <li>@Html.ActionLink("First", "List", new { page = 1}, new { @Class = "btn btn-sm " + firstPlus })</li>
+            <li>@Html.ActionLink("Previous", "List", new { page = (Model.CurrentPage - 1) }, new { @Class = "btn btn-sm " + firstPlus })</li>
+
+            @for (int i = Model.StartPage; i <= Model.EndPage; i++)
+            {
+                <li>@Html.ActionLink(i.ToString(), "List", new { page = 1}, new { @Class = "btn btn-sm " + (i == Model.CurrentPage ? "active" : "")})</li>
+            }
+
+
+            <li>@Html.ActionLink("Next", "List", new { page = (Model.CurrentPage + 1) }, new { @Class = "btn btn-sm " + lastMinus })</li>
+            <li>@Html.ActionLink("Last", "List", new { page = Model.TotalPages }, new { @Class = "btn btn-sm " + lastMinus })</li>
+        </ul>
+    }
+</div>
