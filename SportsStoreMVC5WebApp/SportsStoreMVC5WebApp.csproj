@@ -203,6 +203,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DataContexts\ApplicationDbContext.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201708221123534_IntitalCreate.cs" />
@@ -296,6 +297,7 @@
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\_productSummary.cshtml" />
     <Content Include="Views\Product\_productsPager.cshtml" />
+    <Content Include="Views\Nav\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

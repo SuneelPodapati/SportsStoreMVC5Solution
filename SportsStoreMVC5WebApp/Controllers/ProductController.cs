@@ -22,21 +22,38 @@ namespace SportsStoreMVC5WebApp.Controllers
             _logger = logger;
             _pageSize = 4;
         }
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
-
             Stopwatch timeSpan = Stopwatch.StartNew();
-            var productsList = _productRepository.Products.OrderBy(p => p.ProductId);
+            ViewBag.currentCategory = category;
+            var productsList = _productRepository.Products.Where(p => category == null ? true : p.Category == category).OrderBy(p => p.ProductId);
             var productsListViewModel = new ProductsListViewModel
             {
                 Products = productsList.Skip((page - 1) * _pageSize)
                 .Take(_pageSize),
-                GPager = new GPager(productsList.Count(), page, _pageSize)
+                GPager = new GPager(productsList.Count(), page, _pageSize),
+                CurrentCategory = category
             };
 
             timeSpan.Stop();
             _logger.LogMessage("ProductController", "List", timeSpan.Elapsed, "Getting 4 Records at a time and doing Paging");
             return View(productsListViewModel);
+
+
+            #region Without Category
+            //Stopwatch timeSpan = Stopwatch.StartNew();
+            //var productsList = _productRepository.Products.OrderBy(p => p.ProductId);
+            //var productsListViewModel = new ProductsListViewModel
+            //{
+            //    Products = productsList.Skip((page - 1) * _pageSize)
+            //    .Take(_pageSize),
+            //    GPager = new GPager(productsList.Count(), page, _pageSize)
+            //};
+
+            //timeSpan.Stop();
+            //_logger.LogMessage("ProductController", "List", timeSpan.Elapsed, "Getting 4 Records at a time and doing Paging");
+            //return View(productsListViewModel); 
+            #endregion
 
             #region Raw Paging
             //Stopwatch timeSpan = Stopwatch.StartNew();

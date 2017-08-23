@@ -11,7 +11,6 @@ namespace SportsStoreMVC5WebApp.Models
     {
         public IEnumerable<Product> Products { get; set; }
         public GPager GPager { get; set; }
-
-        //Bug
+        public string CurrentCategory  { get; set; }
     }
 }
